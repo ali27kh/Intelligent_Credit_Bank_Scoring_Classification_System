@@ -7,7 +7,6 @@ This project develops a **machine learning-based credit scoring system** to clas
 
 ## 📂 Dataset
 - **Local CSV File**: Contains features like credit history, income, loan amount, and labels (e.g., approved/rejected).
-- No external link; assumes locally sourced or custom data in CSV format.
 
 ---
 
@@ -103,17 +102,26 @@ Store data in MongoDB and visualize in Power BI.
 ---
 
 ## 📊 Results
-| Model              | Accuracy | Recall | F1 Score | Confusion Matrix      |
-|--------------------|----------|--------|----------|-----------------------|
-| LogisticRegression | 0.72     | 0.72   | 0.66     | [[574  19] [215  42]] |
-| SVM                | 0.70     | 0.70   | 0.58     | [[593   0] [255   2]] |
-| KNeighbors         | 0.99     | 0.99   | 0.99     | [[593   0] [  9 248]] |
-| GradientBoosting   | 0.86     | 0.86   | 0.85     | [[576  17] [101 156]] |
-| AdaBoost           | 0.77     | 0.77   | 0.76     | [[537  56] [137 120]] |
+| Model              | Accuracy | Recall | F1 Score |  
+|--------------------|----------|--------|----------|
+| LogisticRegression | 0.72     | 0.72   | 0.66     |
+| SVM                | 0.70     | 0.70   | 0.58     |
+| KNeighbors         | 0.99     | 0.99   | 0.99     |
+| GradientBoosting   | 0.86     | 0.86   | 0.85     |
+| AdaBoost           | 0.77     | 0.77   | 0.76     |
 
-- **Best Model Curve**: ![Best Model Curve](curve.png)
-- **Simple Test**: ![Test](test.png)
-- **Test Video**: [Model Demo](model.mp4)
+- **Best Model Curve**:
+
+  ![Best Model Curve](curve.png)
+  
+- **Simple Test**:
+
+   ![Test](test.png)
+  
+- **Test Video**:
+
+  [Model Demo](model.mp4)
+  
 - **Power BI Dashboard**: See `final results/` folder for visualizations.
 
 ---
