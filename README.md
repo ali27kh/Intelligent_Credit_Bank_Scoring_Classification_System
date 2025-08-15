@@ -120,7 +120,7 @@ Store data in MongoDB and visualize in Power BI.
   
 - **Test Video**:
 
-  [![Watch the video](capture_interface.png)](model.mp4)
+  [![Watch the video](https://github.com/user-attachments/assets/54590f7d-5078-4d1f-9e85-b611aff20bc2)
   
 - **Power BI Dashboard**: See `final results/` folder for visualizations.
 
