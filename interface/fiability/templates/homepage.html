@@ -1,0 +1,165 @@
+{% load static %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Credit Bank Scoring</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('/static/img/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            justify-content: center;
+        }
+
+        .formbg-outer {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 900px;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .form-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .field label {
+            margin-bottom: 5px;
+        }
+
+        .field input {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        .submit-btn {
+            background-color: #5c7a99;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: auto;
+        }
+
+        .submit-btn:hover {
+            background-color: #d9e7f5;
+        }
+
+        .result-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .result-field {
+            padding: 10px;
+            font-size: 14px;
+            color: rgb(25, 25, 83);
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            text-align: center;
+            width: 100%;
+            max-width: 300px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="formbg-outer">
+            <div class="formbg-inner">
+                <img src="/static/img/img_logo.png" alt="Logo" style="width: 110px; height: 110px; display: block; margin: 0 auto;">
+                <div class="form-header" style="text-align: center; margin-bottom: 30px;">
+                    <h1 style="color: rgb(25, 25, 83);">Credit Bank Scoring</h1>
+                </div>
+
+                <form id="stripe-login" method="post">
+                    {% csrf_token %}
+
+                    <div class="form-container">
+                        <!-- First column -->
+                        <div class="form-column">
+                            <div class="field">
+                                <label for="MPD">Mois avant durée</label>
+                                <input type="number" step="any" name="MPD" value="{{ request.POST.MPD }}" required>
+                            </div>
+                            <div class="field">
+                                <label for="historique">Historique crédit</label>
+                                <input type="number" step="any" name="historique" value="{{ request.POST.historique }}" required>
+                            </div>
+                            <div class="field">
+                                <label for="prix">Prix (DT)</label>
+                                <input type="number" step="any" name="prix" value="{{ request.POST.prix }}" required>
+                            </div>
+                            <div class="field">
+                                <label for="TV">Taux versement (mois)</label>
+                                <input type="number" step="any" name="TV" value="{{ request.POST.TV }}" required>
+                            </div>
+                        </div>
+
+                        <!-- Second column -->
+                        <div class="form-column">
+                            <div class="field">
+                                <label for="Solde">Solde épargne (DT)</label>
+                                <input type="number" step="any" name="Solde" value="{{ request.POST.Solde }}" required>
+                            </div>
+                            <div class="field">
+                                <label for="duree">Durée emploi</label>
+                                <input type="number" step="any" name="duree" value="{{ request.POST.duree }}" required>
+                            </div>
+                            <div class="field">
+                                <label for="age">Âge</label>
+                                <input type="number" step="any" name="age" value="{{ request.POST.age }}" required>
+                            </div>
+                            <div class="field">
+                                <label for="logement">Logement</label>
+                                <input type="number" step="any" name="logement" value="{{ request.POST.logement }}" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="result-container">
+                        <input type="submit" name="submit" value="Predict" class="submit-btn">
+                        <div class="result-field" id="result-field">
+                            {% if result %}
+                                {{ result }}
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

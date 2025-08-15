@@ -1,0 +1,18 @@
+1-Download and install MongoDB on Windows.
+
+2-Download and install ODBC via this link: https://www.devart.com/odbc/mongodb/download.html.
+
+Open ODBC and create a database with the necessary configurations (e.g., localhost and the database name corresponding to the one loaded in MongoDB).
+
+3-Download and install Power BI.
+
+4-Connect the MongoDB database to Power BI (see steps in images).
+
+5-Go to Get Data.
+Select ODBC.
+Load the database into Power BI and start processing.
+Perform the DAX calculation:
+
+6-Go to Modeling and then click on New Column.
+Calculate the two columns: Score and Class.
+Create a dashboard with filters.
